@@ -46,8 +46,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('block-test/hero-block', {
-  title: __('Hero Block', 'block-test/hero-block'),
-  description: __('Display hero block.', 'block-test/hero-block'),
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
