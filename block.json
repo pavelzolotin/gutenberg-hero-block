@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "block-test/hero-block",
+	"version": "0.1.0",
+	"title": "Hero Block",
+	"category": "widgets",
+	"icon": "layout",
+	"description": "Display hero block.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "block-test/hero-block",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
