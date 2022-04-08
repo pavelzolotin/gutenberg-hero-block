@@ -1,1 +1,32 @@
+.wp-block-block-test-hero-block {
+	max-width: 100%;
+	&.hero-block-align-right {
+		text-align: right;
+	}
 
+	&.hero-block-align-center {
+		text-align: center;
+	}
+
+	&.hero-block-align-left {
+		text-align: left;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+.hero-btn {
+	color: #333 !important;
+	background-color: #00aeef;
+	transition: all 0.2s;
+	cursor: pointer;
+	padding: 10px 48px 10px 48px !important;
+	letter-spacing: 0.4px;
+	font-size: 18px !important;
+	line-height: 1.7;
+	border-radius: 30px;
+	font-weight: 600;
+	text-decoration: none;
+}

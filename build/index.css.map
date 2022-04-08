@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AAAA;EACC;EACA;AACD,C","sources":["webpack://hero-block/./src/editor.scss"],"sourcesContent":[".hero-btn {\n\tmargin-top: 15px;\n\tposition: absolute;\n}\n"],"names":[],"sourceRoot":""}
