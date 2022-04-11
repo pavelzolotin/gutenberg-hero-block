@@ -1,10 +1,21 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
+import classnames from 'classnames';
 
 export default function save({ attributes }) {
-	const { title, description, url, alt } = attributes;
+	const { textAlignment, textColor, title, description, url, alt } = attributes;
+
+	const classes = classnames(`hero-block-align-${textAlignment}`, {
+		style: {
+			color: textColor,
+		},
+	});
 
 	return (
-		<div {...useBlockProps.save()}>
+		<div
+			{...useBlockProps.save({
+				className: classes,
+			})}
+		>
 			<div className={'wp-block-test-hero-block-img'}>
 				<img src={url} alt={alt} />
 			</div>

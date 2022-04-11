@@ -5,13 +5,24 @@ import {
 	BlockControls,
 	MediaReplaceFlow,
 	MediaPlaceholder,
+	AlignmentToolbar,
+	InspectorControls,
+	PanelColorSettings,
 } from '@wordpress/block-editor';
 import { ToolbarButton } from '@wordpress/components';
+import classnames from 'classnames';
 import './editor.scss';
 
 export default function Edit(props) {
 	const { attributes, setAttributes, noticeOperations, noticeUI } = props;
-	const { url, alt, id, title, description } = attributes;
+	const { textAlignment, textColor, url, alt, id, title, description } =
+		attributes;
+
+	const onChangeAlignment = (newAlignment) => {
+		setAttributes({ textAlignment: newAlignment });
+	};
+
+	const classes = classnames(`hero-block-align-${textAlignment}`);
 
 	const onSelectImage = (image) => {
 		if (!image || !image.url) {
@@ -50,10 +61,32 @@ export default function Edit(props) {
 		setAttributes({ description: newDescription });
 	};
 
+	const onTextColorChange = (newTextColor) => {
+		setAttributes({ textColor: newTextColor });
+	};
+
 	return (
 		<>
+			<InspectorControls>
+				<PanelColorSettings
+					title={__('Color Settings', 'block-test/hero-block')}
+					icon="admin-appearance"
+					initialOpen
+					colorSettings={[
+						{
+							value: textColor,
+							onChange: onTextColorChange,
+							label: __('Text Color', 'block-test/hero-block'),
+						},
+					]}
+				/>
+			</InspectorControls>
 			{url && (
 				<BlockControls group="inline">
+					<AlignmentToolbar
+						value={textAlignment}
+						onChange={onChangeAlignment}
+					/>
 					<MediaReplaceFlow
 						name={__('Replace Image', 'block-test/hero-block')}
 						onSelect={onSelectImage}
@@ -69,7 +102,14 @@ export default function Edit(props) {
 					</ToolbarButton>
 				</BlockControls>
 			)}
-			<div {...useBlockProps()}>
+			<div
+				{...useBlockProps({
+					className: classes,
+					style: {
+						color: textColor,
+					},
+				})}
+			>
 				{url && (
 					<div className={'wp-block-test-hero-block-img'}>
 						<img src={url} alt={alt} />

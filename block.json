@@ -8,13 +8,22 @@
 	"description": "Display hero block.",
 	"keywords": ["hero"],
 	"supports": {
-		"html": false
+		"html": false,
+		"color": false
 	},
 	"textdomain": "block-test/hero-block",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
 	"attributes": {
+		"textAlignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#fff"
+		},
 		"title": {
 			"type": "string",
 			"source": "html",
