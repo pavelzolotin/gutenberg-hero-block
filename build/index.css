@@ -6,4 +6,8 @@
   position: absolute;
 }
 
+.editor-styles-wrapper .has-secondary-background-color {
+  background-color: #fff;
+}
+
 /*# sourceMappingURL=index.css.map*/

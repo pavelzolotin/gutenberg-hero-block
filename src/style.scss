@@ -1,5 +1,36 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+// html {
+// 	font-size: 62.5%;
+// 	overflow-x: hidden;
+// }
+
+// body {
+// 	box-sizing: border-box;
+// 	font-family: 'Karla', sans-serif;
+// 	-webkit-font-smoothing: antialiased;
+// 	-moz-osx-font-smoothing: grayscale;
+// 	background-color: #fff;
+// }
+
+// @font-face {
+// 	font-family: 'DIN-Bold';
+// 	src: local('DIN-Bold'), url('../fonts/DIN-Condensed_Demi-Bold.woff');
+// }
+
+// @font-face {
+// 	font-family: 'Karla';
+// 	src: local('Karla'), url('../fonts/Karla-Regular.ttf');
+// }
+
 .wp-block-block-test-hero-block {
-	max-width: 100%;
+	max-width: 100% !important;
 	&.hero-block-align-right {
 		text-align: right;
 	}
@@ -29,4 +60,9 @@
 	border-radius: 30px;
 	font-weight: 600;
 	text-decoration: none;
+}
+
+.wp-site-blocks {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
