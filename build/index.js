@@ -26,6 +26,10 @@ const heroTemplate = [['core/image', {}], ['core/heading', {
   placeholder: 'Description'
 }], ['core/button', {
   placeholder: 'Some text'
+}], ['core/video', {
+  placeholder: 'Add video'
+}], ['core/audio', {
+  placeholder: 'Add audio'
 }]];
 function Edit() {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {

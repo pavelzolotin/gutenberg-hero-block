@@ -6,6 +6,8 @@ const heroTemplate = [
 	['core/heading', { placeholder: 'Title' }],
 	['core/paragraph', { placeholder: 'Description' }],
 	['core/button', { placeholder: 'Some text' }],
+	['core/video', { placeholder: 'Add video' }],
+	['core/audio', { placeholder: 'Add audio' }],
 ];
 
 export default function Edit() {
