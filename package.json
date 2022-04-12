@@ -15,7 +15,9 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^22.3.0"
+		"@wordpress/scripts": "^22.3.0",
+		"eslint": "^8.13.0",
+		"eslint-plugin-react": "^7.29.4"
 	},
 	"dependencies": {
 		"@wordpress/components": "^19.7.0"

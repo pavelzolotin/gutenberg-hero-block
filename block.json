@@ -14,20 +14,32 @@
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
-	"id": {
-		"type": "number"
-	},
-	"alt": {
-		"type": "string",
-		"source": "attribute",
-		"selector": "img",
-		"attribute": "alt",
-		"default": ""
-	},
-	"url": {
-		"type": "string",
-		"source": "attribute",
-		"selector": "img",
-		"attribute": "src"
-	}
+    "attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h1"
+		},
+		"description": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		},
+		"id": {
+			"type": "number"
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		}
+    }
 }
