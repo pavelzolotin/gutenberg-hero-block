@@ -13,5 +13,21 @@
 	"textdomain": "block-test/hero-block",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:./build/style-index.css",
+	"id": {
+		"type": "number"
+	},
+	"alt": {
+		"type": "string",
+		"source": "attribute",
+		"selector": "img",
+		"attribute": "alt",
+		"default": ""
+	},
+	"url": {
+		"type": "string",
+		"source": "attribute",
+		"selector": "img",
+		"attribute": "src"
+	}
 }
