@@ -16,7 +16,7 @@
   text-transform: uppercase;
   -webkit-margin-after: 60px;
           margin-block-end: 60px;
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
 .wp-block-block-test-hero-block {
