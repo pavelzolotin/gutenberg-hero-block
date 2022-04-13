@@ -109,8 +109,8 @@ function Edit(_ref) {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Replace File", "block-test/hero-block"),
     onSelect: onSelectImage,
     onSelectURL: onSelectURL,
-    accept: "image/*, audio/*, video/*",
-    allowedTypes: ["image", "audio", "video"],
+    accept: "image/*, video/*",
+    allowedTypes: ["image", "video"],
     mediaId: id,
     mediaURL: url
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarButton, {
@@ -119,7 +119,7 @@ function Edit(_ref) {
     template: heroTemplate,
     templateLock: "all"
   }), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `wp-block-block-test-hero-block-img${(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(url) ? " is-loading" : ""}`
+    className: `wp-block-block-test-hero-block__img-wrapper${(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(url) ? " is-loading" : ""}`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: url,
     alt: alt
@@ -194,7 +194,7 @@ function save(_ref) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__inner-blocks"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "wp-block-block-test-hero-block-img"
+    className: "wp-block-block-test-hero-block__img-wrapper"
   }, url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: url,
     alt: alt,

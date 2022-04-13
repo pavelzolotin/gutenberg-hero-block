@@ -13,7 +13,7 @@ export default function save({ attributes }) {
 			<div className="wp-block-block-test-hero-block__inner-blocks">
 				<InnerBlocks.Content />
 			</div>
-			<div className="wp-block-block-test-hero-block-img">
+			<div className="wp-block-block-test-hero-block__img-wrapper">
 				{url && (
 					<img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
 				)}

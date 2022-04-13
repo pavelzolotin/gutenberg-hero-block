@@ -82,8 +82,8 @@ export default function Edit({ attributes, setAttributes }) {
 						name={__("Replace File", "block-test/hero-block")}
 						onSelect={onSelectImage}
 						onSelectURL={onSelectURL}
-						accept="image/*, audio/*, video/*"
-						allowedTypes={["image", "audio", "video"]}
+						accept="image/*, video/*"
+						allowedTypes={["image", "video"]}
 						mediaId={id}
 						mediaURL={url}
 					/>
@@ -96,7 +96,7 @@ export default function Edit({ attributes, setAttributes }) {
 				{url && <InnerBlocks template={heroTemplate} templateLock="all" />}
 				{url && (
 					<div
-						className={`wp-block-block-test-hero-block-img${
+						className={`wp-block-block-test-hero-block__img-wrapper${
 							isBlobURL(url) ? " is-loading" : ""
 						}`}
 					>

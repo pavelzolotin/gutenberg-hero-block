@@ -47,13 +47,18 @@ html {
 		text-align: left;
 	}
 
-	img {
+	&__img-wrapper {
         position: absolute;
         top: 0;
         left: 0;
         z-index: 0;
 		width: 100%;
-        height: 800px;
+        height: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
 	}
 
@@ -75,8 +80,8 @@ html {
 
     &__inner-blocks {
         display: flex;
-        width: 1040px;
-        margin-left: 200px;
+        max-width: 1040px;
+        margin: 0 auto;
         flex-direction: column;
         z-index: 1;
 
@@ -95,13 +100,14 @@ html {
 	padding-right: 0 !important;
 }
 
-.wp-block-block-test-hero-block__inner-blocks > .wp-block-button > a.wp-block-button__link {
+.wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .wp-block-button > a.wp-block-button__link {
 	position: relative;
 	display: inline-block;
     margin-top: 77px;
 	text-decoration: none;
-	color: #333;
-	background-color: #00aeef;
+	color: #333 !important;
+    font-family: 'Karla', sans-serif;
+	background-color: #00aeef !important;
 	transition: all 0.2s;
 	cursor: pointer;
 	padding: 16px 48px 15px 48px;
@@ -110,9 +116,10 @@ html {
 	line-height: 17px;
 	border-radius: 30px;
 	font-weight: 600;
-}
 
-.block-editor-block-list__layout {
-    z-index: 1;
+    &:hover {
+        background-color: rgba(92, 203, 245, 0.9)!important;
+        border-color: transparent !important;
+        }
 }
 
