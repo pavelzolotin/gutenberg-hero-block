@@ -8,12 +8,49 @@
 .editor-styles-wrapper {
   background-color: #c2c2c2 !important;
 }
+.editor-styles-wrapper h2 {
+  font-family: "DIN-Bold", sans-serif !important;
+  font-size: clamp(18px, 8vw, 128px) !important;
+  color: #fff;
+  line-height: 1 !important;
+  text-transform: uppercase;
+  -webkit-margin-after: 60px;
+          margin-block-end: 60px;
+}
 
-.hero-bg > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-editor-block-list__block > .wp-block-button__link {
+.wp-block-block-test-hero-block {
+  display: flex;
+  align-items: center;
+  min-height: 800px;
+  position: relative;
+}
+.wp-block-block-test-hero-block__hero-pattern {
+  background-repeat: repeat;
+  min-height: 800px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.wp-block-block-test-hero-block img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  min-height: 800px;
+}
+
+.wp-block-block-test-hero-block > .block-editor-inner-blocks {
+  display: flex;
+  margin-left: 200px;
+}
+
+.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-editor-block-list__block > .wp-block-button__link {
   position: relative;
   display: inline-block;
   text-decoration: none;
   color: #333;
+  font-family: "Karla", sans-serif;
   background-color: #00aeef;
   transition: all 0.2s;
   cursor: pointer;
@@ -23,15 +60,17 @@
   line-height: 17px;
   border-radius: 30px;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-top: 58px;
 }
 
-.hero-bg > .block-editor-inner-blocks > .block-editor-block-list__layout > h1 {
+.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > h1 {
   font-family: "DIN-Bold", sans-serif;
   font-size: clamp(18px, 8vw, 128px);
   color: #fff;
   line-height: 1;
   text-transform: uppercase;
+  -webkit-margin-after: 60px;
+          margin-block-end: 60px;
 }
 
 /*# sourceMappingURL=index.css.map*/
