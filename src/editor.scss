@@ -1,4 +1,37 @@
-.hero-btn {
-	margin-top: 15px;
-	position: absolute;
+@font-face {
+	font-family: 'DIN-Bold';
+	src: local('DIN-Bold'), url('/assets/fonts/DIN-Condensed_Demi-Bold.woff');
+}
+
+.editor-styles-wrapper {
+	background-color: #c2c2c2 !important;
+}
+
+.hero-bg
+	> .block-editor-inner-blocks
+	> .block-editor-block-list__layout
+	> .block-editor-block-list__block
+	> .wp-block-button__link {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	color: #333;
+	background-color: #00aeef;
+	transition: all 0.2s;
+	cursor: pointer;
+	padding: 16px 48px 15px 48px;
+	letter-spacing: 0.4px;
+	font-size: 18px;
+	line-height: 17px;
+	border-radius: 30px;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+
+.hero-bg > .block-editor-inner-blocks > .block-editor-block-list__layout > h1 {
+	font-family: 'DIN-Bold', sans-serif;
+	font-size: clamp(18px, 8vw, 128px);
+	color: #fff;
+	line-height: 1;
+	text-transform: uppercase;
 }

@@ -29,14 +29,6 @@ html {
   font-family: "Karla";
   src: local("Karla"), url(fonts/Karla-Regular.5c46eab2.ttf);
 }
-.hero-bg > .block-editor-inner-blocks > .block-editor-block-list__layout > h1 {
-  font-family: "DIN-Bold", sans-serif;
-  font-size: clamp(18px, 8vw, 128px);
-  color: #fff;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
 .hero-bg h1 {
   font-family: "DIN-Bold", sans-serif;
   font-size: clamp(18px, 8vw, 128px);
@@ -47,6 +39,7 @@ html {
 
 .wp-block-block-test-hero-block {
   max-width: 100% !important;
+  position: relative;
 }
 .wp-block-block-test-hero-block.hero-block-align-right {
   text-align: right;
@@ -58,6 +51,10 @@ html {
   text-align: left;
 }
 .wp-block-block-test-hero-block img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
   width: 100%;
 }
 .wp-block-block-test-hero-block p {
@@ -88,25 +85,8 @@ html {
   font-weight: 600;
 }
 
-.editor-styles-wrapper {
-  background-color: #c2c2c2 !important;
-}
-
-.hero-bg > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-editor-block-list__block > .wp-block-button__link {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: #333;
-  background-color: #00aeef;
-  transition: all 0.2s;
-  cursor: pointer;
-  padding: 16px 48px 15px 48px;
-  letter-spacing: 0.4px;
-  font-size: 18px;
-  line-height: 17px;
-  border-radius: 30px;
-  font-weight: 600;
-  margin-bottom: 30px;
+.block-editor-block-list__layout {
+  z-index: 1;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
