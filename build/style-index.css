@@ -45,7 +45,7 @@ html {
 .wp-block-block-test-hero-block.hero-block-align-left {
   text-align: left;
 }
-.wp-block-block-test-hero-block__img-wrapper {
+.wp-block-block-test-hero-block__media-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -80,6 +80,7 @@ html {
   margin: 0 auto;
   flex-direction: column;
   z-index: 1;
+  width: 100%;
 }
 .wp-block-block-test-hero-block__inner-blocks h1, .wp-block-block-test-hero-block__inner-blocks h2 {
   font-family: "DIN-Bold", sans-serif;
@@ -97,7 +98,7 @@ html {
 .wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .wp-block-button > a.wp-block-button__link {
   position: relative;
   display: inline-block;
-  margin-top: 77px;
+  margin-top: 58px;
   text-decoration: none;
   color: #333 !important;
   font-family: "Karla", sans-serif;

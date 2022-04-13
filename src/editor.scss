@@ -12,8 +12,8 @@
         color: #fff;
         line-height: 1!important;
         text-transform: uppercase;
-        margin-block-end: 60px;
         max-width: 100% !important;
+        margin: 0;
     }
 }
 
@@ -31,12 +31,20 @@
         width: 100%;
     }
 
-    &__img-wrapper {
+    &__media-wrapper {
         position: absolute;
         top: 0;
         left: 0;
         z-index: 0;
 		width: 100%;
+        height: 100%;
+    }
+
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
     }
 
@@ -49,9 +57,11 @@
 .wp-block-block-test-hero-block
 	> .block-editor-inner-blocks {
         display: flex;
-        width: 1040px;
-        margin-left: 200px;
+        max-width: 1040px;
+        width: 100%;
+        margin: 0 auto;
         z-index: 1;
+
     }
 
 .wp-block-block-test-hero-block
@@ -73,7 +83,7 @@
 	line-height: 17px;
 	border-radius: 30px;
 	font-weight: 600;
-    margin-top: 58px;
+    margin-top: 59px;
 
     &:hover {
         background-color: rgba(92, 203, 245, 0.9)!important;
@@ -119,6 +129,6 @@
 }
 
 .wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout p {
-    margin-top: 40px;
+    margin: 17px 0 0 0;
     max-width: 100%;
 }

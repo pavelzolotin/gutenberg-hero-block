@@ -47,7 +47,7 @@ html {
 		text-align: left;
 	}
 
-	&__img-wrapper {
+	&__media-wrapper {
         position: absolute;
         top: 0;
         left: 0;
@@ -84,6 +84,7 @@ html {
         margin: 0 auto;
         flex-direction: column;
         z-index: 1;
+        width: 100%;
 
         h1, h2 {
             font-family: 'DIN-Bold', sans-serif;
@@ -103,7 +104,7 @@ html {
 .wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .wp-block-button > a.wp-block-button__link {
 	position: relative;
 	display: inline-block;
-    margin-top: 77px;
+    margin-top: 58px;
 	text-decoration: none;
 	color: #333 !important;
     font-family: 'Karla', sans-serif;
