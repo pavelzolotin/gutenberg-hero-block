@@ -90,7 +90,7 @@ function Edit(_ref) {
         url: undefined,
         id: undefined,
         alt: "",
-        typeMedia
+        typeMedia: ""
       });
       return;
     }
@@ -187,10 +187,10 @@ function Edit(_ref) {
     className: `wp-block-block-test-hero-block__media-wrapper${(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url) ? " is-loading" : ""}`
   }, typeMedia === "image" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: url,
-    alt: alt
+    alt: alt,
+    className: "wp-block-block-test-hero-block__img"
   }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("video", {
     src: url,
-    alt: alt,
     autoPlay: true,
     muted: true
   }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {

@@ -73,7 +73,7 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 				url: undefined,
 				id: undefined,
 				alt: "",
-				typeMedia,
+				typeMedia: "",
 			});
 			return;
 		}
@@ -188,9 +188,13 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 						}`}
 					>
 						{typeMedia === "image" ? (
-							<img src={url} alt={alt} />
+							<img
+								src={url}
+								alt={alt}
+								className="wp-block-block-test-hero-block__img"
+							/>
 						) : (
-							<video src={url} alt={alt} autoPlay muted />
+							<video src={url} autoPlay muted />
 						)}
 
 						{isBlobURL(url) && <Spinner />}

@@ -38,12 +38,11 @@
 		"url": {
 			"type": "string",
 			"source": "attribute",
-			"selector": "img",
+			"selector": "img, video",
 			"attribute": "src"
 		},
 		"typeMedia": {
-			"type": "string",
-			"source": "attribute"
+			"type": "string"
 		}
 	}
 }
