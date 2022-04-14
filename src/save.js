@@ -2,7 +2,7 @@ import heroBg from "../assets/img/machina-hero-bg-pattern.png";
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
-	const { id, url, alt } = attributes;
+	const { id, url, alt, typeMedia } = attributes;
 
 	const heroBgPattern = {
 		backgroundImage: `url(${heroBg})`,
@@ -14,8 +14,10 @@ export default function save({ attributes }) {
 				<InnerBlocks.Content />
 			</div>
 			<div className="wp-block-block-test-hero-block__media-wrapper">
-				{url && (
+				{typeMedia === "image" ? (
 					<img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
+				) : (
+					<video src={url} alt={alt} autoPlay muted />
 				)}
 			</div>
 			<div

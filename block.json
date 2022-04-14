@@ -42,7 +42,8 @@
 			"attribute": "src"
 		},
 		"typeMedia": {
-			"type": "string"
+			"type": "string",
+			"source": "attribute"
 		}
 	}
 }

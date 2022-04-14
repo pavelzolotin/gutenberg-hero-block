@@ -59,6 +59,13 @@ html {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.wp-block-block-test-hero-block video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+}
 .wp-block-block-test-hero-block p {
   font-family: "Karla", sans-serif;
   font-weight: 400;

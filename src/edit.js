@@ -23,7 +23,7 @@ import {
 import "./editor.scss";
 
 function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
-	const { url, alt, id } = attributes;
+	const { url, alt, id, typeMedia } = attributes;
 	const [blobURL, setBlobURL] = useState();
 
 	const heroTemplate = [
@@ -67,12 +67,23 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 		return options;
 	};
 
-	const onSelectImage = (image) => {
-		if (!image || !image.url) {
-			setAttributes({ url: undefined, id: undefined, alt: "" });
+	const onSelectMedia = (media) => {
+		if (!media || !media.url) {
+			setAttributes({
+				url: undefined,
+				id: undefined,
+				alt: "",
+				typeMedia,
+			});
 			return;
 		}
-		setAttributes({ url: image.url, id: image.id, alt: image.alt });
+
+		setAttributes({
+			url: media.url,
+			id: media.id,
+			alt: media.alt,
+			typeMedia: media.type,
+		});
 	};
 
 	const onSelectURL = (newURL) => {
@@ -83,7 +94,7 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 		});
 	};
 
-	const removeImage = () => {
+	const removeFile = () => {
 		setAttributes({
 			url: undefined,
 			alt: "",
@@ -155,7 +166,7 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 				<BlockControls group="inline">
 					<MediaReplaceFlow
 						name={__("Replace File", "block-test/hero-block")}
-						onSelect={onSelectImage}
+						onSelect={onSelectMedia}
 						onSelectURL={onSelectURL}
 						onError={onUploadError}
 						accept="image/*, video/*"
@@ -163,7 +174,7 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 						mediaId={id}
 						mediaURL={url}
 					/>
-					<ToolbarButton onClick={removeImage}>
+					<ToolbarButton onClick={removeFile}>
 						{__("Remove File", "block-test/hero-block")}
 					</ToolbarButton>
 				</BlockControls>
@@ -176,13 +187,18 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 							isBlobURL(url) ? " is-loading" : ""
 						}`}
 					>
-						<img src={url} alt={alt} />
+						{typeMedia === "image" ? (
+							<img src={url} alt={alt} />
+						) : (
+							<video src={url} alt={alt} autoPlay muted />
+						)}
+
 						{isBlobURL(url) && <Spinner />}
 					</div>
 				)}
 				<MediaPlaceholder
 					icon="admin-users"
-					onSelect={onSelectImage}
+					onSelect={onSelectMedia}
 					onSelectURL={onSelectURL}
 					onError={onUploadError}
 					accept="image/*, video/*"
