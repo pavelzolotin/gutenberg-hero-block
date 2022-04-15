@@ -10,20 +10,26 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...useBlockProps.save()}>
-			<div className="wp-block-block-test-hero-block__inner-blocks">
-				<InnerBlocks.Content />
-			</div>
 			<div className="wp-block-block-test-hero-block__media-wrapper">
-				{typeMedia === "image" ? (
-					<img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
+				{typeMedia === "video" ? (
+					<video
+						src={url}
+						className={id ? `wp-video-${id}` : null}
+						autoPlay
+						loop
+						muted
+					/>
 				) : (
-					<video src={url} alt={alt} autoPlay muted />
+					<img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
 				)}
 			</div>
 			<div
 				className="wp-block-block-test-hero-block__hero-pattern"
 				style={heroBgPattern}
-			></div>
+			/>
+			<div className="wp-block-block-test-hero-block__inner-blocks">
+				<InnerBlocks.Content />
+			</div>
 		</div>
 	);
 }

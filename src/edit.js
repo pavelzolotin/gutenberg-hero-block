@@ -180,21 +180,26 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 				</BlockControls>
 			)}
 			<div {...useBlockProps()}>
-				{url && <InnerBlocks template={heroTemplate} templateLock="all" />}
 				{url && (
 					<div
 						className={`wp-block-block-test-hero-block__media-wrapper${
 							isBlobURL(url) ? " is-loading" : ""
 						}`}
 					>
-						{typeMedia === "image" ? (
+						{typeMedia === "video" ? (
+							<video
+								src={url}
+								className="wp-block-block-test-hero-block__video"
+								autoPlay
+								loop
+								muted
+							/>
+						) : (
 							<img
 								src={url}
 								alt={alt}
 								className="wp-block-block-test-hero-block__img"
 							/>
-						) : (
-							<video src={url} autoPlay muted />
 						)}
 
 						{isBlobURL(url) && <Spinner />}
@@ -214,8 +219,9 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 					<div
 						className="wp-block-block-test-hero-block__hero-pattern"
 						style={heroBgPattern}
-					></div>
+					/>
 				)}
+				{url && <InnerBlocks template={heroTemplate} templateLock="all" />}
 			</div>
 		</>
 	);

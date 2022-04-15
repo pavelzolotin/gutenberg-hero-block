@@ -180,19 +180,18 @@ function Edit(_ref) {
     mediaURL: url
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToolbarButton, {
     onClick: removeFile
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Remove File", "block-test/hero-block"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
-    template: heroTemplate,
-    templateLock: "all"
-  }), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Remove File", "block-test/hero-block"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `wp-block-block-test-hero-block__media-wrapper${(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url) ? " is-loading" : ""}`
-  }, typeMedia === "image" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, typeMedia === "video" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("video", {
+    src: url,
+    className: "wp-block-block-test-hero-block__video",
+    autoPlay: true,
+    loop: true,
+    muted: true
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: url,
     alt: alt,
     className: "wp-block-block-test-hero-block__img"
-  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("video", {
-    src: url,
-    autoPlay: true,
-    muted: true
   }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Spinner, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     icon: "admin-users",
     onSelect: onSelectMedia,
@@ -205,6 +204,9 @@ function Edit(_ref) {
   }), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__hero-pattern",
     style: heroBgPattern
+  }), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    template: heroTemplate,
+    templateLock: "all"
   })));
 }
 
@@ -267,22 +269,23 @@ function save(_ref) {
     backgroundImage: `url(${_assets_img_machina_hero_bg_pattern_png__WEBPACK_IMPORTED_MODULE_1__})`
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "wp-block-block-test-hero-block__inner-blocks"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__media-wrapper"
-  }, typeMedia === "image" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, typeMedia === "video" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("video", {
+    src: url,
+    className: id ? `wp-video-${id}` : null,
+    autoPlay: true,
+    loop: true,
+    muted: true
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: url,
     alt: alt,
     className: id ? `wp-image-${id}` : null
-  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("video", {
-    src: url,
-    alt: alt,
-    autoPlay: true,
-    muted: true
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__hero-pattern",
     style: heroBgPattern
-  }));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wp-block-block-test-hero-block__inner-blocks"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null)));
 }
 
 /***/ }),
