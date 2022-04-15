@@ -15,16 +15,6 @@
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
 	"attributes": {
-		"title": {
-			"type": "string",
-			"source": "html",
-			"selector": "h1"
-		},
-		"description": {
-			"type": "string",
-			"source": "html",
-			"selector": "p"
-		},
 		"id": {
 			"type": "number"
 		},

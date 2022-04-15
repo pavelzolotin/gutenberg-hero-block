@@ -1,4 +1,5 @@
 import heroBg from "../assets/img/machina-hero-bg-pattern.png";
+import posterImage from "../assets/img/video-poster.jpg";
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
@@ -15,6 +16,7 @@ export default function save({ attributes }) {
 					<video
 						src={url}
 						className={id ? `wp-video-${id}` : null}
+						poster={posterImage}
 						autoPlay
 						loop
 						muted

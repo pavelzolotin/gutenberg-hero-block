@@ -1,4 +1,5 @@
 import heroBg from "../assets/img/machina-hero-bg-pattern.png";
+import posterImage from "../assets/img/video-poster.jpg";
 import { useEffect, useState } from "@wordpress/element";
 import {
 	useBlockProps,
@@ -192,6 +193,7 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 							<video
 								src={url}
 								className="wp-block-block-test-hero-block__video"
+								poster={posterImage}
 								autoPlay
 								loop
 								muted
