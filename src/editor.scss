@@ -20,12 +20,12 @@
 .wp-block-block-test-hero-block {
     display: flex;
     align-items: center;
-    min-height: 800px;
+    height: 800px;
     position: relative;
 
     &__hero-pattern {
         background-repeat: repeat;
-        min-height: 800px;
+        height: 100%;
         position: absolute;
         top: 0;
         width: 100%;
@@ -51,16 +51,41 @@
         width: 100% !important;
         height: 100% !important;
 	}
+
+    &__btn-poster--select {
+        color: #fff;
+        font-family: 'Karla', sans-serif;
+	    background-color: #007cba;
+	    transition: all 0.2s;
+
+        &:hover {
+            background-color: #006ba1;
+            border-color: transparent;
+            color: #fff;
+            }
+    }
+
+    &__btn-poster--remove {
+        color: #fff;
+        font-family: 'Karla', sans-serif;
+	    background-color: #007cba;
+	    transition: all 0.2s;
+        margin-top: 10px;
+
+        &:hover {
+            background-color: #006ba1;
+            border-color: transparent;
+            color: #fff;
+            }
+    }
 }
 
 .wp-block-block-test-hero-block
 	> .block-editor-inner-blocks {
-        display: flex;
         position: relative;
         max-width: 1040px;
         width: 100%;
         margin: 0 auto;
-
     }
 
 .wp-block-block-test-hero-block

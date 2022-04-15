@@ -1,9 +1,8 @@
 import heroBg from "../assets/img/machina-hero-bg-pattern.png";
-import posterImage from "../assets/img/video-poster.jpg";
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
-	const { id, url, alt, typeMedia } = attributes;
+	const { id, url, alt, typeMedia, posterURL, posterAlt } = attributes;
 
 	const heroBgPattern = {
 		backgroundImage: `url(${heroBg})`,
@@ -16,10 +15,10 @@ export default function save({ attributes }) {
 					<video
 						src={url}
 						className={id ? `wp-video-${id}` : null}
-						poster={posterImage}
 						autoPlay
 						loop
 						muted
+						poster={posterURL}
 					/>
 				) : (
 					<img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
@@ -32,6 +31,11 @@ export default function save({ attributes }) {
 			<div className="wp-block-block-test-hero-block__inner-blocks">
 				<InnerBlocks.Content />
 			</div>
+			<img
+				src={posterURL}
+				alt={posterAlt}
+				className="wp-block-block-test-hero-block__poster-thumbnail"
+			/>
 		</div>
 	);
 }

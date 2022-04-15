@@ -18,6 +18,21 @@
 		"id": {
 			"type": "number"
 		},
+		"posterID": {
+			"type": "number"
+		},
+		"posterURL": {
+			"type": "string",
+			"source": "attribute",
+			"attribute": "src",
+			"selector": "img"
+		},
+		"posterAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt"
+		},
 		"alt": {
 			"type": "string",
 			"source": "attribute",

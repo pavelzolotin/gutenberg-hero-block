@@ -32,7 +32,7 @@ html {
 .wp-block-block-test-hero-block {
   display: flex;
   align-items: center;
-  min-height: 800px;
+  height: 800px;
   max-width: 100% !important;
   position: relative;
 }
@@ -75,17 +75,15 @@ html {
 }
 .wp-block-block-test-hero-block__hero-pattern {
   background-repeat: repeat;
-  min-height: 800px;
+  height: 100%;
   position: absolute;
   top: 0;
   width: 100%;
 }
 .wp-block-block-test-hero-block__inner-blocks {
-  display: flex;
   position: relative;
   max-width: 1040px;
   margin: 0 auto;
-  flex-direction: column;
   width: 100%;
 }
 .wp-block-block-test-hero-block__inner-blocks h1, .wp-block-block-test-hero-block__inner-blocks h2 {
