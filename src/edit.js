@@ -140,27 +140,29 @@ function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Image Settings", "block-test/hero-block")}>
-					{id && (
-						<SelectControl
-							label={__("Image Size", "block-test/hero-block")}
-							options={getImageSizeOptions()}
-							value={url}
-							onChange={onChangeImageSize}
-						/>
-					)}
-					{url && !isBlobURL(url) && (
-						<TextareaControl
-							label={__("Alt Text", "block-test/hero-block")}
-							value={alt}
-							onChange={onChangeAlt}
-							help={__(
-								"Alternative text describes your image to people can't see it. Add a short description with its key details.",
-								"block-test/hero-block"
-							)}
-						/>
-					)}
-				</PanelBody>
+				{typeMedia === "image" && (
+					<PanelBody title={__("Image Settings", "block-test/hero-block")}>
+						{id && (
+							<SelectControl
+								label={__("Image Size", "block-test/hero-block")}
+								options={getImageSizeOptions()}
+								value={url}
+								onChange={onChangeImageSize}
+							/>
+						)}
+						{url && !isBlobURL(url) && (
+							<TextareaControl
+								label={__("Alt Text", "block-test/hero-block")}
+								value={alt}
+								onChange={onChangeAlt}
+								help={__(
+									"Alternative text describes your image to people can't see it. Add a short description with its key details.",
+									"block-test/hero-block"
+								)}
+							/>
+						)}
+					</PanelBody>
+				)}
 			</InspectorControls>
 			{url && (
 				<BlockControls group="inline">
