@@ -31,11 +31,13 @@ export default function save({ attributes }) {
 			<div className="wp-block-block-test-hero-block__inner-blocks">
 				<InnerBlocks.Content />
 			</div>
-			<img
-				src={posterURL}
-				alt={posterAlt}
-				className="wp-block-block-test-hero-block__poster-thumbnail"
-			/>
+			{typeMedia === "video" ? (
+				<img
+					src={posterURL}
+					alt={posterAlt}
+					className="wp-block-block-test-hero-block__poster-thumbnail"
+				/>
+			) : null}
 		</div>
 	);
 }
