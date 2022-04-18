@@ -30,8 +30,7 @@ function Edit({
 	noticeUI,
 	isSelected,
 }) {
-	const { url, alt, id, typeMedia, posterAlt, posterURL, posterID } =
-		attributes;
+	const { url, alt, id, typeMedia, posterURL, posterID } = attributes;
 	const [blobURL, setBlobURL] = useState();
 
 	const heroTemplate = [
@@ -79,14 +78,12 @@ function Edit({
 		setAttributes({
 			posterURL: poster.url,
 			posterID: poster.id,
-			posterAlt: poster.alt,
 		});
 	};
 
 	const removePoster = () => {
 		setAttributes({
 			posterURL: undefined,
-			posterAlt: "",
 			posterID: undefined,
 		});
 	};
@@ -169,7 +166,7 @@ function Edit({
 						{posterURL ? (
 							<img
 								src={posterURL}
-								alt={posterAlt}
+								alt=""
 								className="wp-block-block-test-hero-block__poster-thumbnail"
 							/>
 						) : (

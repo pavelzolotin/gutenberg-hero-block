@@ -44,7 +44,6 @@ function Edit(_ref) {
     alt,
     id,
     typeMedia,
-    posterAlt,
     posterURL,
     posterID
   } = attributes;
@@ -89,15 +88,13 @@ function Edit(_ref) {
   const onSelectPoster = poster => {
     setAttributes({
       posterURL: poster.url,
-      posterID: poster.id,
-      posterAlt: poster.alt
+      posterID: poster.id
     });
   };
 
   const removePoster = () => {
     setAttributes({
       posterURL: undefined,
-      posterAlt: "",
       posterID: undefined
     });
   };
@@ -176,7 +173,7 @@ function Edit(_ref) {
     initialOpen: true
   }, posterURL ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: posterURL,
-    alt: posterAlt,
+    alt: "",
     className: "wp-block-block-test-hero-block__poster-thumbnail"
   }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
     onSelect: onSelectPoster,
@@ -302,8 +299,7 @@ function save(_ref) {
     url,
     alt,
     typeMedia,
-    posterURL,
-    posterAlt
+    posterURL
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__media-wrapper"
@@ -322,7 +318,7 @@ function save(_ref) {
     className: "wp-block-block-test-hero-block__inner-blocks"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)), typeMedia === "video" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: posterURL,
-    alt: posterAlt,
+    alt: "",
     className: "wp-block-block-test-hero-block__poster-img"
   }) : null);
 }

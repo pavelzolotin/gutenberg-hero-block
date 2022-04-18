@@ -1,7 +1,7 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
-	const { id, url, alt, typeMedia, posterURL, posterAlt } = attributes;
+	const { id, url, alt, typeMedia, posterURL } = attributes;
 
 	return (
 		<div {...useBlockProps.save()}>
@@ -25,7 +25,7 @@ export default function save({ attributes }) {
 			{typeMedia === "video" ? (
 				<img
 					src={posterURL}
-					alt={posterAlt}
+					alt=""
 					className="wp-block-block-test-hero-block__poster-img"
 				/>
 			) : null}
