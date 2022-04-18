@@ -8,6 +8,7 @@
 
 .editor-styles-wrapper {
   background-color: #c2c2c2 !important;
+  padding: 0 !important;
 }
 .editor-styles-wrapper h2 {
   font-family: "DIN-Bold", sans-serif !important;
@@ -16,22 +17,20 @@
   line-height: 1 !important;
   text-transform: uppercase;
   max-width: 100% !important;
-  margin: 0;
+  margin: 0 !important;
+}
+.editor-styles-wrapper p {
+  margin: 20px 0 0 0 !important;
+  max-width: 100%;
+}
+.editor-styles-wrapper img {
+  height: 100% !important;
 }
 
-.wp-block-block-test-hero-block {
-  display: flex;
-  align-items: center;
-  height: 800px;
-  position: relative;
+.block-editor-media-placeholder {
+  max-width: 1248px;
 }
-.wp-block-block-test-hero-block__media-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+
 .wp-block-block-test-hero-block__btn-poster--select {
   color: #fff;
   font-family: "Karla", sans-serif;
@@ -56,14 +55,14 @@
   color: #fff;
 }
 
-.wp-block-block-test-hero-block > .block-editor-inner-blocks {
-  position: relative;
-  max-width: 1248px;
-  width: 100%;
-  margin: 0 auto;
+.wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button {
+  display: flex;
+  justify-content: left;
+  max-width: 100%;
+  margin: 59px 0 0 0;
 }
 
-.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button > .wp-block-button__link {
+.wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button > .wp-block-button__link {
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -78,43 +77,10 @@
   line-height: 17px;
   border-radius: 30px;
   font-weight: 600;
-  margin-top: 59px;
 }
-.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button > .wp-block-button__link:hover {
+.wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button > .wp-block-button__link:hover {
   background-color: rgba(92, 203, 245, 0.9) !important;
   border-color: transparent !important;
-}
-
-.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button > .wp-block-button__link, .wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button > .wp-block-button__link:link, .wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button > .wp-block-button__link:visited {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: #333;
-  background-color: #00aeef;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block-button {
-  display: flex;
-  justify-content: left;
-  max-width: 100%;
-}
-
-.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout > h1 {
-  font-family: "DIN-Bold", sans-serif;
-  font-size: clamp(18px, 8vw, 128px);
-  color: #fff;
-  line-height: 1;
-  text-transform: uppercase;
-  -webkit-margin-after: 60px;
-          margin-block-end: 60px;
-  max-width: 100%;
-}
-
-.wp-block-block-test-hero-block > .block-editor-inner-blocks > .block-editor-block-list__layout p {
-  margin: 17px 0 0 0;
-  max-width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map*/

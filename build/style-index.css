@@ -35,21 +35,16 @@ html {
   padding-right: 0 !important;
 }
 
+.block-editor-block-list__block {
+  justify-content: center;
+}
+
 .wp-block-block-test-hero-block {
   display: flex;
   align-items: center;
   height: 800px;
   max-width: 100% !important;
   position: relative;
-}
-.wp-block-block-test-hero-block.hero-block-align-right {
-  text-align: right;
-}
-.wp-block-block-test-hero-block.hero-block-align-center {
-  text-align: center;
-}
-.wp-block-block-test-hero-block.hero-block-align-left {
-  text-align: left;
 }
 .wp-block-block-test-hero-block__media-wrapper {
   position: absolute;
@@ -83,8 +78,7 @@ html {
   font-weight: 400;
   color: #fff;
   font-size: 24px;
-  -webkit-margin-before: 17px;
-          margin-block-start: 17px;
+  margin-top: 20px;
 }
 .wp-block-block-test-hero-block__poster-img {
   position: absolute;
@@ -104,10 +98,13 @@ html {
   text-transform: uppercase;
 }
 
+.wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .wp-block-button {
+  margin: 59px 0 0 0;
+}
+
 .wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .wp-block-button > a.wp-block-button__link {
   position: relative;
   display: inline-block;
-  margin-top: 58px;
   text-decoration: none;
   color: #333 !important;
   font-family: "Karla", sans-serif;

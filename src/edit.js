@@ -276,7 +276,11 @@ function Edit({
 					disableMediaButtons={url}
 					notices={noticeUI}
 				/>
-				{url && <InnerBlocks template={heroTemplate} templateLock="all" />}
+				{url && (
+					<div className="wp-block-block-test-hero-block__inner-blocks">
+						{url && <InnerBlocks template={heroTemplate} templateLock="all" />}
+					</div>
+				)}
 			</div>
 		</>
 	);
