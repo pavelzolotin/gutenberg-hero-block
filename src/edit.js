@@ -1,4 +1,3 @@
-import heroBg from "../assets/img/machina-hero-bg-pattern.png";
 import { useEffect, useState } from "@wordpress/element";
 import {
 	useBlockProps,
@@ -158,10 +157,6 @@ function Edit({
 		}
 	}, [url]);
 
-	const heroBgPattern = {
-		backgroundImage: `url(${heroBg})`,
-	};
-
 	return (
 		<>
 			<InspectorControls>
@@ -281,12 +276,6 @@ function Edit({
 					disableMediaButtons={url}
 					notices={noticeUI}
 				/>
-				{url && (
-					<div
-						className="wp-block-block-test-hero-block__hero-pattern"
-						style={heroBgPattern}
-					/>
-				)}
 				{url && <InnerBlocks template={heroTemplate} templateLock="all" />}
 			</div>
 		</>
