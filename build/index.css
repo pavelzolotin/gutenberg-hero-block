@@ -28,6 +28,9 @@
 }
 
 .wp-block-block-test-hero-block__btn-poster--select {
+  width: 50%;
+  min-height: 50px;
+  padding: 0;
   color: #fff;
   font-family: "Karla", sans-serif;
   background-color: #007cba;
@@ -38,17 +41,9 @@
   border-color: transparent;
   color: #fff;
 }
-.wp-block-block-test-hero-block__btn-poster--remove {
-  color: #fff;
-  font-family: "Karla", sans-serif;
-  background-color: #007cba;
-  transition: all 0.2s;
-  margin-top: 10px;
-}
-.wp-block-block-test-hero-block__btn-poster--remove:hover {
-  background-color: #006ba1;
-  border-color: transparent;
-  color: #fff;
+
+.components-button.is-destructive {
+  margin-top: 20px;
 }
 
 .wp-block-block-test-hero-block > .wp-block-block-test-hero-block__inner-blocks > .block-editor-inner-blocks > .block-editor-block-list__layout p {

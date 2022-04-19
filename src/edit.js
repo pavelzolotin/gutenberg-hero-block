@@ -3,8 +3,8 @@ import {
 	useBlockProps,
 	MediaPlaceholder,
 	BlockControls,
-	MediaReplaceFlow,
 	MediaUpload,
+	MediaReplaceFlow,
 	InspectorControls,
 	InnerBlocks,
 	store as blockEditorStore,
@@ -23,13 +23,7 @@ import {
 } from "@wordpress/components";
 import "./editor.scss";
 
-function Edit({
-	attributes,
-	setAttributes,
-	noticeOperations,
-	noticeUI,
-	isSelected,
-}) {
+function Edit({ attributes, setAttributes, noticeOperations, noticeUI }) {
 	const { url, alt, id, typeMedia, posterURL, posterID } = attributes;
 	const [blobURL, setBlobURL] = useState();
 
@@ -74,20 +68,6 @@ function Edit({
 		return options;
 	};
 
-	const onSelectPoster = (poster) => {
-		setAttributes({
-			posterURL: poster.url,
-			posterID: poster.id,
-		});
-	};
-
-	const removePoster = () => {
-		setAttributes({
-			posterURL: undefined,
-			posterID: undefined,
-		});
-	};
-
 	const onSelectMedia = (media) => {
 		if (!media || !media.url) {
 			setAttributes({
@@ -95,6 +75,8 @@ function Edit({
 				id: undefined,
 				alt: "",
 				typeMedia: "",
+				posterID: 0,
+				posterURL: "",
 			});
 			return;
 		}
@@ -104,6 +86,8 @@ function Edit({
 			id: media.id,
 			alt: media.alt,
 			typeMedia: media.type,
+			posterID: 0,
+			posterURL: "",
 		});
 	};
 
@@ -112,6 +96,7 @@ function Edit({
 			url: newURL,
 			id: undefined,
 			alt: "",
+			typeMedia: "",
 		});
 	};
 
@@ -120,6 +105,27 @@ function Edit({
 			url: undefined,
 			alt: "",
 			id: undefined,
+			typeMedia: "",
+			posterID: 0,
+			posterURL: "",
+		});
+	};
+
+	const onSelectPoster = (media) => {
+		if (!media || !media.url) {
+			setAttributes({ posterURL: "", posterID: 0 });
+			return;
+		}
+		setAttributes({
+			posterURL: media.url,
+			posterID: media.id,
+		});
+	};
+
+	const removePoster = () => {
+		setAttributes({
+			posterURL: "",
+			posterID: 0,
 		});
 	};
 
@@ -157,67 +163,58 @@ function Edit({
 	return (
 		<>
 			<InspectorControls>
-				{url && typeMedia === "video" && (
-					<PanelBody
-						title={__("Select video poster image", "block-test/hero-block")}
-						icon="format-image"
-						initialOpen={true}
-					>
-						{posterURL ? (
-							<img
-								src={posterURL}
-								alt=""
-								className="wp-block-block-test-hero-block__poster-thumbnail"
-							/>
-						) : (
+				<PanelBody title={__("Image Settings", "block-test/hero-block")}>
+					{id && (
+						<SelectControl
+							label={__("Image Size", "block-test/hero-block")}
+							options={getImageSizeOptions()}
+							value={url}
+							onChange={onChangeImageSize}
+						/>
+					)}
+					{url && !isBlobURL(url) && typeMedia === "image" && (
+						<TextareaControl
+							label={__("Alt Text", "block-test/hero-block")}
+							value={alt}
+							onChange={onChangeAlt}
+							help={__(
+								"Alternative text describes your image to people can't see it. Add a short description with its key details.",
+								"block-test/hero-block"
+							)}
+						/>
+					)}
+					{url && typeMedia === "video" && (
+						<>
 							<MediaUpload
 								onSelect={onSelectPoster}
-								accept="image/*"
 								allowedTypes={["image"]}
 								value={posterID}
 								render={({ open }) => (
 									<Button
-										className="wp-block-block-test-hero-block__btn-poster--select"
+										className={
+											posterID === 0
+												? "wp-block-block-test-hero-block__btn-poster--select editor-post-featured-image__toggle"
+												: "editor-post-featured-image__preview"
+										}
 										onClick={open}
 									>
-										Open Library
+										{posterID === 0 &&
+											__("Select poster image", "block-test/hero-block")}
+										{posterURL !== undefined && <img alt="" src={posterURL} />}
 									</Button>
 								)}
 							/>
-						)}
-						{posterURL && isSelected ? (
-							<Button
-								className="wp-block-block-test-hero-block__btn-poster--remove"
-								onClick={removePoster}
-							>
-								{__("Remove", "block-test/hero-block")}
-							</Button>
-						) : null}
-					</PanelBody>
-				)}
-				{url && typeMedia === "image" && (
-					<PanelBody title={__("Image Settings", "block-test/hero-block")}>
-						{id && (
-							<SelectControl
-								label={__("Image Size", "block-test/hero-block")}
-								options={getImageSizeOptions()}
-								value={url}
-								onChange={onChangeImageSize}
-							/>
-						)}
-						{url && !isBlobURL(url) && (
-							<TextareaControl
-								label={__("Alt Text", "block-test/hero-block")}
-								value={alt}
-								onChange={onChangeAlt}
-								help={__(
-									"Alternative text describes your image to people can't see it. Add a short description with its key details.",
-									"block-test/hero-block"
-								)}
-							/>
-						)}
-					</PanelBody>
-				)}
+							{posterID !== 0 && (
+								<Button onClick={removePoster} isDestructive>
+									{__(
+										"Remove poster image",
+										"wp-block-block-test-hero-block__btn-poster--remove block-test/hero-block"
+									)}
+								</Button>
+							)}
+						</>
+					)}
+				</PanelBody>
 			</InspectorControls>
 			{url && (
 				<BlockControls group="inline">
@@ -275,7 +272,7 @@ function Edit({
 				/>
 				{url && (
 					<div className="wp-block-block-test-hero-block__inner-blocks">
-						{url && <InnerBlocks template={heroTemplate} templateLock="all" />}
+						<InnerBlocks template={heroTemplate} templateLock="all" />
 					</div>
 				)}
 			</div>

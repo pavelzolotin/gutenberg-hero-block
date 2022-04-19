@@ -19,7 +19,8 @@
 			"type": "number"
 		},
 		"posterID": {
-			"type": "number"
+			"type": "number",
+			"default": 0
 		},
 		"posterURL": {
 			"type": "string",

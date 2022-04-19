@@ -36,8 +36,7 @@ function Edit(_ref) {
     attributes,
     setAttributes,
     noticeOperations,
-    noticeUI,
-    isSelected
+    noticeUI
   } = _ref;
   const {
     url,
@@ -85,27 +84,15 @@ function Edit(_ref) {
     return options;
   };
 
-  const onSelectPoster = poster => {
-    setAttributes({
-      posterURL: poster.url,
-      posterID: poster.id
-    });
-  };
-
-  const removePoster = () => {
-    setAttributes({
-      posterURL: undefined,
-      posterID: undefined
-    });
-  };
-
   const onSelectMedia = media => {
     if (!media || !media.url) {
       setAttributes({
         url: undefined,
         id: undefined,
         alt: "",
-        typeMedia: ""
+        typeMedia: "",
+        posterID: 0,
+        posterURL: ""
       });
       return;
     }
@@ -114,7 +101,9 @@ function Edit(_ref) {
       url: media.url,
       id: media.id,
       alt: media.alt,
-      typeMedia: media.type
+      typeMedia: media.type,
+      posterID: 0,
+      posterURL: ""
     });
   };
 
@@ -122,7 +111,8 @@ function Edit(_ref) {
     setAttributes({
       url: newURL,
       id: undefined,
-      alt: ""
+      alt: "",
+      typeMedia: ""
     });
   };
 
@@ -130,7 +120,32 @@ function Edit(_ref) {
     setAttributes({
       url: undefined,
       alt: "",
-      id: undefined
+      id: undefined,
+      typeMedia: "",
+      posterID: 0,
+      posterURL: ""
+    });
+  };
+
+  const onSelectPoster = media => {
+    if (!media || !media.url) {
+      setAttributes({
+        posterURL: "",
+        posterID: 0
+      });
+      return;
+    }
+
+    setAttributes({
+      posterURL: media.url,
+      posterID: media.id
+    });
+  };
+
+  const removePoster = () => {
+    setAttributes({
+      posterURL: "",
+      posterID: 0
     });
   };
 
@@ -167,17 +182,20 @@ function Edit(_ref) {
       setBlobURL();
     }
   }, [url]);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, url && typeMedia === "video" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Select video poster image", "block-test/hero-block"),
-    icon: "format-image",
-    initialOpen: true
-  }, posterURL ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: posterURL,
-    alt: "",
-    className: "wp-block-block-test-hero-block__poster-thumbnail"
-  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Image Settings", "block-test/hero-block")
+  }, id && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Image Size", "block-test/hero-block"),
+    options: getImageSizeOptions(),
+    value: url,
+    onChange: onChangeImageSize
+  }), url && !(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(url) && typeMedia === "image" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextareaControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Alt Text", "block-test/hero-block"),
+    value: alt,
+    onChange: onChangeAlt,
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Alternative text describes your image to people can't see it. Add a short description with its key details.", "block-test/hero-block")
+  }), url && typeMedia === "video" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
     onSelect: onSelectPoster,
-    accept: "image/*",
     allowedTypes: ["image"],
     value: posterID,
     render: _ref2 => {
@@ -185,26 +203,17 @@ function Edit(_ref) {
         open
       } = _ref2;
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-        className: "wp-block-block-test-hero-block__btn-poster--select",
+        className: posterID === 0 ? "wp-block-block-test-hero-block__btn-poster--select editor-post-featured-image__toggle" : "editor-post-featured-image__preview",
         onClick: open
-      }, "Open Library");
+      }, posterID === 0 && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Select poster image", "block-test/hero-block"), posterURL !== undefined && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        alt: "",
+        src: posterURL
+      }));
     }
-  }), posterURL && isSelected ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-    className: "wp-block-block-test-hero-block__btn-poster--remove",
-    onClick: removePoster
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Remove", "block-test/hero-block")) : null), url && typeMedia === "image" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Image Settings", "block-test/hero-block")
-  }, id && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Image Size", "block-test/hero-block"),
-    options: getImageSizeOptions(),
-    value: url,
-    onChange: onChangeImageSize
-  }), url && !(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextareaControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Alt Text", "block-test/hero-block"),
-    value: alt,
-    onChange: onChangeAlt,
-    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Alternative text describes your image to people can't see it. Add a short description with its key details.", "block-test/hero-block")
-  }))), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, {
+  }), posterID !== 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+    onClick: removePoster,
+    isDestructive: true
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Remove poster image", "wp-block-block-test-hero-block__btn-poster--remove block-test/hero-block"))))), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, {
     group: "inline"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaReplaceFlow, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Replace File", "block-test/hero-block"),
@@ -241,7 +250,7 @@ function Edit(_ref) {
     notices: noticeUI
   }), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__inner-blocks"
-  }, url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
     template: heroTemplate,
     templateLock: "all"
   }))));
@@ -301,11 +310,11 @@ function save(_ref) {
     typeMedia,
     posterURL
   } = attributes;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), url && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__media-wrapper"
   }, typeMedia === "video" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("video", {
     src: url,
-    className: id ? `wp-video-${id}` : null,
+    className: id ? `wp-block-block-test-hero-block__video wp-video-${id}` : null,
     autoPlay: true,
     loop: true,
     muted: true,
@@ -316,11 +325,7 @@ function save(_ref) {
     className: id ? `wp-image-${id}` : null
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-hero-block__inner-blocks"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)), typeMedia === "video" ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: posterURL,
-    alt: "",
-    className: "wp-block-block-test-hero-block__poster-img"
-  }) : null);
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null))));
 }
 
 /***/ }),
